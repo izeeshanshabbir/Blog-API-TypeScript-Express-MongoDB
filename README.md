@@ -1,5 +1,12 @@
 # Blog API – TypeScript, Express & MongoDB
 
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](#)
+[![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
+![Node.js](https://img.shields.io/badge/Node.js-18.x-green?logo=node.js)
+![Express](https://img.shields.io/badge/Express.js-5.x-lightgrey?logo=express)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue?logo=typescript)
+![MongoDB](https://img.shields.io/badge/MongoDB-6.x-brightgreen?logo=mongodb)
+
 A production-ready RESTful Blog API built with **TypeScript, Express, and MongoDB**.
 
 ## 🚀 Features
@@ -10,6 +17,27 @@ A production-ready RESTful Blog API built with **TypeScript, Express, and MongoD
 - Secure practices: input sanitization, rate limiting, cookie-based refresh tokens, and Helmet
 - Scalable architecture with controllers, middlewares, and models
 - Centralized logging with Winston
+
+## 📂 Project Structure
+```
+blog-api/
+├── src/
+│   ├── config/            # App configuration
+│   ├── controllers/       # Request handlers
+│   ├── lib/               # Utility libraries (jwt, winston, mongoose, etc.)
+│   ├── middlewares/       # Authentication, authorization, validation
+│   ├── models/            # Mongoose models (User, Blog, Comment, Like, Token)
+│   ├── routes/            # API routes
+│   ├── server.ts          # Entry point
+│   └── @types/            # Custom TypeScript type definitions
+├── .gitignore
+├── LICENSE
+├── nodemon.json
+├── package.json
+├── README.md
+├── tsconfig.json
+└── .prettierrc
+```
 
 ## 📂 Tech Stack
 - **Backend:** Node.js, Express.js, TypeScript
