@@ -23,7 +23,7 @@ A production-ready RESTful Blog API built with **TypeScript, Express, and MongoD
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/blog-api.git
+git clone https://github.com/izeeshanshabbir/Blog-API-TypeScript-Express-MongoDB.git
 
 # Navigate to the project folder
 cd blog-api
