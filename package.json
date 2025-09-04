@@ -4,9 +4,9 @@
   "main": "dist/server.js",
   "scripts": {
     "dev": "nodemon",
-    "build": "tsc",
-    "start": "node -r tsconfig-paths/register dist/server.js",
-    "postinstall": "npm run build"
+    "build": "tsc && tsc-alias",
+    "start": "node dist/server.js",
+    "start:prod": "pm2 start dist/server.js --name blog-api"
   },
   "keywords": [],
   "author": "Zeeshan Shabbir Abbasi",
