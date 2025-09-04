@@ -32,23 +32,36 @@ import type { CorsOptions } from 'cors';
 const app = express();
 
 // Configure CORS options
+// const corsOptions: CorsOptions = {
+//   origin(requestOrigin, callback) {
+//     if (
+//       config.NODE_ENV === 'development' ||
+//       !requestOrigin ||
+//       config.WHITELIST_ORIGINS.includes(requestOrigin)
+//     ) {
+//       callback(null, true);
+//     } else {
+//       // Reject requests from non-whitelisted origins
+//       callback(
+//         new Error(`CORS Error: ${requestOrigin} is not allowed by CORS`),
+//         false,
+//       );
+//       logger.warn(`CORS Error: ${requestOrigin} is not allowed by CORS`);
+//     }
+//   },
+// };
+
 const corsOptions: CorsOptions = {
-  origin(requestOrigin, callback) {
-    if (
-      config.NODE_ENV === 'development' ||
-      !requestOrigin ||
-      config.WHITELIST_ORIGINS.includes(requestOrigin)
-    ) {
+  origin: (requestOrigin, callback) => {
+    // Allow requests with no origin (e.g., Postman) or in development
+    if (!requestOrigin || config.NODE_ENV === 'development') {
       callback(null, true);
-    } else {
-      // Reject requests from non-whitelisted origins
-      callback(
-        new Error(`CORS Error: ${requestOrigin} is not allowed by CORS`),
-        false,
-      );
-      logger.warn(`CORS Error: ${requestOrigin} is not allowed by CORS`);
+      return;
     }
+    // For now, allow everything temporarily
+    callback(null, true);
   },
+  credentials: true, // required for cookies
 };
 
 // Apply CORS middleware

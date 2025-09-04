@@ -24,17 +24,14 @@ const winston_1 = require("./lib/winston");
 const v1_1 = __importDefault(require("./routes/v1"));
 const app = (0, express_1.default)();
 const corsOptions = {
-    origin(requestOrigin, callback) {
-        if (config_1.default.NODE_ENV === 'development' ||
-            !requestOrigin ||
-            config_1.default.WHITELIST_ORIGINS.includes(requestOrigin)) {
+    origin: (requestOrigin, callback) => {
+        if (!requestOrigin || config_1.default.NODE_ENV === 'development') {
             callback(null, true);
+            return;
         }
-        else {
-            callback(new Error(`CORS Error: ${requestOrigin} is not allowed by CORS`), false);
-            winston_1.logger.warn(`CORS Error: ${requestOrigin} is not allowed by CORS`);
-        }
+        callback(null, true);
     },
+    credentials: true,
 };
 app.use((0, cors_1.default)(corsOptions));
 app.use(express_1.default.json());
