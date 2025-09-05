@@ -106,7 +106,7 @@ router.get(
 );
 
 router.delete(
-  '/userId',
+  '/:userId',
   authenticate,
   authorize(['admin']),
   param('userId').notEmpty().isMongoId().withMessage('Invalid User ID'),
