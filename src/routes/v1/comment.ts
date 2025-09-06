@@ -16,7 +16,7 @@ import deleteComment from '@/controllers/v1/comment/delete_comment';
 const router = Router();
 
 router.post(
-  'blog/:blogId',
+  '/blog/:blogId',
   authenticate,
   authorize(['admin', 'user']),
   param('blogId').isMongoId().withMessage('Invalid blog ID'),
@@ -26,7 +26,7 @@ router.post(
 );
 
 router.get(
-  'blog/:blogId',
+  '/blog/:blogId',
   authenticate,
   authorize(['admin', 'user']),
   param('blogId').isMongoId().withMessage('Invalid blog ID'),

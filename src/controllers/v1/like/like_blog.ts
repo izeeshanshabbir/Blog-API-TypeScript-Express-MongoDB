@@ -25,7 +25,7 @@ const likeBlog = async (req: Request, res: Response): Promise<void> => {
 
     const existingLike = await Like.findOne({ blogId, userId }).lean().exec();
 
-    if (!existingLike) {
+    if (existingLike) {
       res.status(400).json({
         code: 'BadRequest',
         message: 'You already liked this blog',

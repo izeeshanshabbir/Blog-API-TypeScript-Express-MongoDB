@@ -34,7 +34,7 @@ router.post(
     .withMessage('Title is required')
     .isLength({ max: 180 })
     .withMessage('Title must be less than 180 characters'),
-  body('banner_image').notEmpty().withMessage('Banner image is required'),
+  // body('banner_image').notEmpty().withMessage('Banner image is required'),
   body('content').trim().notEmpty().withMessage('Content is required'),
   body('status')
     .optional()
